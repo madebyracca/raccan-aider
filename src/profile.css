@@ -3,14 +3,13 @@
 X ~~fix modal profile buttons on extended sidebars~~
 */
 
-
-.animatorLeft_faf9c0 {
     /*fun fact: this fixes discord's own mistake in the normal client. fun!*/
+.animatorLeft_faf9c0 {
     transition: none !important;
     transform: none !important;
 }
 
-.outer_c0bea0.user-profile-popout {
+/*.outer_c0bea0.user-profile-popout {
     box-shadow: var(--shadow-high);
     border: 1px solid var(--_aider-border-dark);
 
@@ -25,7 +24,6 @@ X ~~fix modal profile buttons on extended sidebars~~
             top: 0px;
             width: 100%;
             height: 100%;
-            /* background: red; */
             z-index: 0;
             pointer-events: none;
             content: "";
@@ -360,17 +358,14 @@ X ~~fix modal profile buttons on extended sidebars~~
 
         .connection__9bfb9:has(>.platformIconContainer__9bfb9>img[src="/assets/8a42ef6bc4dd4e0d.png"]) {
             --_aider-connection-accent: #0186ff;
-            /*bluesky*/
         }
 
         .connection__9bfb9:has(>.platformIconContainer__9bfb9>img[src="/assets/8d54a5919eb645f9.png"]) {
             --_aider-connection-accent: #fafafa;
-            /*domain*/
         }
 
         .connection__9bfb9:has(>.platformIconContainer__9bfb9>img[src="/assets/1cc92a6d139af44d.png"]) {
             --_aider-connection-accent: #fafafa;
-            /*gh*/
         }
 
     }
@@ -391,7 +386,6 @@ X ~~fix modal profile buttons on extended sidebars~~
         top: 0px;
         width: 100%;
         height: 100%;
-        /* background: red; */
         z-index: 0;
         pointer-events: none;
         content: "";
@@ -443,4 +437,4 @@ div>.container__9c314 {
         scale: 2.25!important;
         margin-left: 30px;
     }
-}
+}*/
