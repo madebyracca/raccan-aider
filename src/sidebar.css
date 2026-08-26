@@ -163,7 +163,11 @@
 }
 
 /* Guilds -------------- */
-
+.wrapper_cc5dd2 {
+    overflow: hidden;
+    contain: strict;
+    border-radius: 0px;
+}
 .shiftSVG_cc5dd2 {
     contain: none;
     overflow: visible;
@@ -380,6 +384,11 @@
 }
 
 /* Avatars -------------- */
+.wrapper__44b0c {
+    overflow: hidden;
+    contain: strict;
+    border-radius: 0px;
+}
 .mask__44b0c {
     overflow: visible;
     contain: none;
@@ -587,7 +596,7 @@ svg:not(.avatarDecoration__44b0c) .avatarStack__44b0c,
     border-radius: 0px;
 
     &:hover {
-        backdrop-filter: brightness(110%);
+        backdrop-filter: rgba(255, 255, 255, 0.1);
     }
 
     .link__2ea32 {

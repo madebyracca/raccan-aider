@@ -347,6 +347,8 @@
 .children__9293f>div>.avatar_f75fb0 {
     height: var(--custom-channel-header-height) !important;
     width: var(--custom-channel-header-height) !important;
+    overflow: hidden;
+    contain: strict;
 
     >.svg__44b0c {
         contain: none !important;
@@ -470,7 +472,7 @@
 .item__133bf,
 .button__201d5 {
     border-radius: var(--radius-sm);
-    transition: all 0.15s ease !important;
+    transition: transform 0.15s ease, filter 0.15s ease !important;
 
     &.primary_a22cb0,
     &.addFriend__133bf,
@@ -537,9 +539,6 @@
 
 .theme-light {
     .button_a22cb0 {
-        border-radius: var(--radius-sm);
-        transition: all 0.15s ease !important;
-
         &.primary_a22cb0 {
             border: 1px solid color-mix(in oklab,
                     color-mix(in oklab,
@@ -576,7 +575,6 @@
         }
 
         &:active {
-            transform: translateY(1px);
             filter: brightness(0.8);
         }
     }
@@ -889,11 +887,6 @@ div[role="dialog"]>.recentMentionsPopout__95796 {
     pointer-events: none;
 }
 
-.scrim__40128 {
-    backdrop-filter: blur(1.5px) saturate(50%) brightness(25%);
-    background: transparent;
-}
-
 /*Embed*/
 .embedFull__623de {
     border-width: 0px;
@@ -908,7 +901,7 @@ div[role="dialog"]>.recentMentionsPopout__95796 {
         position: absolute;
         bottom: 0;
         left: 0;
-        width: 100%;
+        width: 10px;
         height: 100%;
         border-left-color: inherit;
         border-left-width: 5px;
@@ -933,23 +926,22 @@ div[role="dialog"]>.recentMentionsPopout__95796 {
 
 .container__8a031:has(>.quickswitcher_ac6cb0),
 .quickswitcher_ac6cb0 {
-    background: transparent;
-    border: none;
-    padding: 0px;
+    background: linear-gradient(to bottom,
+            color-mix(in oklab, var(--background-base-lower), black 20%),
+            color-mix(in oklab, var(--background-base-lower), black 40%) calc(var(--custom-channel-header-height) / 2));
+    border: 1px solid var(--_aider-border-dark);
+    box-shadow: inset 0px 0px 0px 1px var(--border-subtle);
 }
 
 .result__71961 {
-    background: var(--_aider-gradient);
-    border: 1px solid var(--_aider-border-dark);
-    box-shadow: inset 0px 0px 0px 1px var(--border-subtle);
+    border-radius: 0px;
     transition: transform 2.5s linear(0, 0.029 0.8%, 0.13 1.8%, 0.908 7.2%, 1.051 9.1%, 1.112 11.2%, 1.116 12.2%, 1.106 13.4%, 1.007 19.5%, 0.987 23.1%, 1.001 35%, 1), opacity 0.5s ease, background 0.3s ease;
     perspective: 400px;
     opacity: 1;
 
     &:hover,
     &[aria-selected="true"] {
-        background: var(--_aider-gradient);
-        filter: brightness(1.4);
+        background: rgba(255, 255, 255, 0.1);
     }
 
     @starting-style {

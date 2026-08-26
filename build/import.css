@@ -348,6 +348,8 @@
 .children__9293f>div>.avatar_f75fb0 {
     height: var(--custom-channel-header-height) !important;
     width: var(--custom-channel-header-height) !important;
+    overflow: hidden;
+    contain: strict;
 
     >.svg__44b0c {
         contain: none !important;
@@ -471,7 +473,7 @@
 .item__133bf,
 .button__201d5 {
     border-radius: var(--radius-sm);
-    transition: all 0.15s ease !important;
+    transition: transform 0.15s ease, filter 0.15s ease !important;
 
     &.primary_a22cb0,
     &.addFriend__133bf,
@@ -538,9 +540,6 @@
 
 .theme-light {
     .button_a22cb0 {
-        border-radius: var(--radius-sm);
-        transition: all 0.15s ease !important;
-
         &.primary_a22cb0 {
             border: 1px solid color-mix(in oklab,
                     color-mix(in oklab,
@@ -577,7 +576,6 @@
         }
 
         &:active {
-            transform: translateY(1px);
             filter: brightness(0.8);
         }
     }
@@ -890,11 +888,6 @@ div[role="dialog"]>.recentMentionsPopout__95796 {
     pointer-events: none;
 }
 
-.scrim__40128 {
-    backdrop-filter: blur(1.5px) saturate(50%) brightness(25%);
-    background: transparent;
-}
-
 /*Embed*/
 .embedFull__623de {
     border-width: 0px;
@@ -909,7 +902,7 @@ div[role="dialog"]>.recentMentionsPopout__95796 {
         position: absolute;
         bottom: 0;
         left: 0;
-        width: 100%;
+        width: 10px;
         height: 100%;
         border-left-color: inherit;
         border-left-width: 5px;
@@ -934,23 +927,22 @@ div[role="dialog"]>.recentMentionsPopout__95796 {
 
 .container__8a031:has(>.quickswitcher_ac6cb0),
 .quickswitcher_ac6cb0 {
-    background: transparent;
-    border: none;
-    padding: 0px;
+    background: linear-gradient(to bottom,
+            color-mix(in oklab, var(--background-base-lower), black 20%),
+            color-mix(in oklab, var(--background-base-lower), black 40%) calc(var(--custom-channel-header-height) / 2));
+    border: 1px solid var(--_aider-border-dark);
+    box-shadow: inset 0px 0px 0px 1px var(--border-subtle);
 }
 
 .result__71961 {
-    background: var(--_aider-gradient);
-    border: 1px solid var(--_aider-border-dark);
-    box-shadow: inset 0px 0px 0px 1px var(--border-subtle);
+    border-radius: 0px;
     transition: transform 2.5s linear(0, 0.029 0.8%, 0.13 1.8%, 0.908 7.2%, 1.051 9.1%, 1.112 11.2%, 1.116 12.2%, 1.106 13.4%, 1.007 19.5%, 0.987 23.1%, 1.001 35%, 1), opacity 0.5s ease, background 0.3s ease;
     perspective: 400px;
     opacity: 1;
 
     &:hover,
     &[aria-selected="true"] {
-        background: var(--_aider-gradient);
-        filter: brightness(1.4);
+        background: rgba(255, 255, 255, 0.1);
     }
 
     @starting-style {
@@ -1024,7 +1016,7 @@ div[role="dialog"]>.recentMentionsPopout__95796 {
     border-top: 0 !important;
 }
 
-.typing_b88801 {
+/*.typing_b88801 {
     overflow: visible !important;
     z-index: 0;
 
@@ -1063,6 +1055,7 @@ div[role="dialog"]>.recentMentionsPopout__95796 {
         }
     }
 }
+*/
 
 .form_f75fb0>div:not([class]) {
     position: relative;
@@ -1173,7 +1166,7 @@ div[role="dialog"]>.recentMentionsPopout__95796 {
                 height: 100%;
                 align-items: center;
                 justify-content: center;
-                transition: all 0.3s ease;
+                transition: filter 0.3s ease, transform 0.3s ease;
 
                 &:hover {
                     filter: brightness(1.4);
@@ -1196,7 +1189,7 @@ div[role="dialog"]>.recentMentionsPopout__95796 {
                 min-height: var(--custom-channel-textarea-text-area-height);
                 min-width: var(--custom-channel-textarea-text-area-height);
                 height: 100%;
-                transition: all 0.3s ease;
+                transition: filter 0.3s ease, transform 0.3s ease;
 
                 &:hover {
                     filter: brightness(1.4);
@@ -1234,7 +1227,7 @@ div[role="dialog"]>.recentMentionsPopout__95796 {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    transition: all 0.3s ease;
+                    transition: filter 0.3s ease, transform 0.3s ease;
 
                     &:hover {
                         filter: brightness(1.4);
@@ -1618,7 +1611,7 @@ div[role="dialog"]>.recentMentionsPopout__95796 {
         >* {
             z-index: 2 !important;
             position: relative;
-            filter: drop-shadow(0 2px 0px rgba(255, 255, 255, 0.25));
+            text-shadow: 0 2px 0px rgba(255, 255, 255, 0.25);
         }
 
         a {
@@ -1851,14 +1844,13 @@ div[role="dialog"]>.recentMentionsPopout__95796 {
 X ~~fix modal profile buttons on extended sidebars~~
 */
 
-
-.animatorLeft_faf9c0 {
     /*fun fact: this fixes discord's own mistake in the normal client. fun!*/
+.animatorLeft_faf9c0 {
     transition: none !important;
     transform: none !important;
 }
 
-.outer_c0bea0.user-profile-popout {
+/*.outer_c0bea0.user-profile-popout {
     box-shadow: var(--shadow-high);
     border: 1px solid var(--_aider-border-dark);
 
@@ -1873,7 +1865,6 @@ X ~~fix modal profile buttons on extended sidebars~~
             top: 0px;
             width: 100%;
             height: 100%;
-            /* background: red; */
             z-index: 0;
             pointer-events: none;
             content: "";
@@ -2208,17 +2199,14 @@ X ~~fix modal profile buttons on extended sidebars~~
 
         .connection__9bfb9:has(>.platformIconContainer__9bfb9>img[src="/assets/8a42ef6bc4dd4e0d.png"]) {
             --_aider-connection-accent: #0186ff;
-            /*bluesky*/
         }
 
         .connection__9bfb9:has(>.platformIconContainer__9bfb9>img[src="/assets/8d54a5919eb645f9.png"]) {
             --_aider-connection-accent: #fafafa;
-            /*domain*/
         }
 
         .connection__9bfb9:has(>.platformIconContainer__9bfb9>img[src="/assets/1cc92a6d139af44d.png"]) {
             --_aider-connection-accent: #fafafa;
-            /*gh*/
         }
 
     }
@@ -2239,7 +2227,6 @@ X ~~fix modal profile buttons on extended sidebars~~
         top: 0px;
         width: 100%;
         height: 100%;
-        /* background: red; */
         z-index: 0;
         pointer-events: none;
         content: "";
@@ -2291,7 +2278,7 @@ div>.container__9c314 {
         scale: 2.25!important;
         margin-left: 30px;
     }
-}
+}*/
 
 /* //////// sidebar.css //////// */
 .sidebarList__5e434 {
@@ -2459,7 +2446,11 @@ div>.container__9c314 {
 }
 
 /* Guilds -------------- */
-
+.wrapper_cc5dd2 {
+    overflow: hidden;
+    contain: strict;
+    border-radius: 0px;
+}
 .shiftSVG_cc5dd2 {
     contain: none;
     overflow: visible;
@@ -2676,6 +2667,11 @@ div>.container__9c314 {
 }
 
 /* Avatars -------------- */
+.wrapper__44b0c {
+    overflow: hidden;
+    contain: strict;
+    border-radius: 0px;
+}
 .mask__44b0c {
     overflow: visible;
     contain: none;
@@ -2883,7 +2879,7 @@ svg:not(.avatarDecoration__44b0c) .avatarStack__44b0c,
     border-radius: 0px;
 
     &:hover {
-        backdrop-filter: brightness(110%);
+        backdrop-filter: rgba(255, 255, 255, 0.1);
     }
 
     .link__2ea32 {
