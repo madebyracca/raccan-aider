@@ -32,7 +32,7 @@
 @property --aider-bubbles {
     syntax: "<boolean>";
     inherits: true;
-    initial-value: true;
+    initial-value: false;
     name: "Bubbles";
     note: "Should messages have bubble backgrounds?";
 }
